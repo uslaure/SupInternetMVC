@@ -1,2 +1,2 @@
-route_name:
+user_list:
   controller: ControllerClassName:ActionName
