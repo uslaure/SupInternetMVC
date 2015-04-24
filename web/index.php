@@ -16,6 +16,9 @@
  */
 $routes = ...
 
+//Thaks to p=, find the current route
+$current_route = ...
+
 //ControllerClassName, end name is ...Controller
 $controller_class = ... ;
 
