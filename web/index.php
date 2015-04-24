@@ -3,6 +3,9 @@
 /**
  * This is you FrontController, the only point of access to your webapp
  */
+ 
+ require __DIR__ . '/../vendor/autoload.php';
+ 
 
 /**
  * Use Yaml components for load a config routing, $routes is in yaml app/config/routing.yml :
