@@ -25,7 +25,30 @@ class UserController {
     public function listUserAction($request) {
         //Use Doctrine DBAL here
 
-        $users = ...
+        /*****/
+        $config = new \Doctrine\DBAL\Configuration();
+
+
+        //for this array use config_dev.yml and YamlComponents
+        // http://symfony.com/fr/doc/current/components/yaml/introduction.html
+        $connectionParams = array(
+            'dbname' => 'mydb',
+            'user' => 'user',
+            'password' => 'secret',
+            'host' => 'localhost',
+            'driver' => 'pdo_mysql',
+        );
+        
+        $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+
+        // http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html
+        // it's much better if you use QueryBuilder : http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/query-builder.html
+        $statement = $conn->prepare('SELECT * FROM user');
+
+
+        $statement->execute();
+        $users = $statement->fetchAll();
+/******/     
 
         //you can return a Response object
         return [
