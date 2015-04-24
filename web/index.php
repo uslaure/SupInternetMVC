@@ -37,7 +37,6 @@ $response = $controller->$action_name($request);
  * Use Twig !
  */
 //require $response['view'];
-<?php
 /**
 * This is you FrontController, the only point of access to your webapp
 */
