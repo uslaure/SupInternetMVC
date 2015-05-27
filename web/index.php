@@ -50,6 +50,9 @@ require __DIR__ . '/../vendor/autoload.php';
 *
 */
 $routes = Yaml::parse(file_get_contents(__DIR__.'/../app/config/routing.yml'));
+/*if(!empty(GET['p'])){
+	$page = ['home'];
+}else()*/
 $currentroute = $routes[$_GET['p']]['controller'];
 $routes_array = explode(':',$currentroute);
 //ControllerClassName, end name is ...Controller
@@ -66,4 +69,14 @@ $response = $controller->$action_name($request);
 /**
 * Use Twig !
 */
-require $response['view'];
+require_DIR_ .'/../src/'.$response['view'];
+
+   if (isset($_SESSION['flashBag'])) {
+        foreach ($_SESSION['flashBag'] as $type => $flash) {
+            foreach ($flash as $key => $message) {
+                echo '<div class="'.$type.'" role="'.$type.'" >'.$message.'</div>';
+                // un fois affiché le message doit être supprimé
+                unset($_SESSION['flashBag'][$type][$key]);
+            }
+        }
+    }

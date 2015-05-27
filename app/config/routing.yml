@@ -1,12 +1,12 @@
 user_list:
   controller: Website\Controller\UserController:ActionName
 user_list:
-	controller: Website\Controller\UserController:showUserAction
+  controller: Website\Controller\UserController:showUserAction
 user_list:
-	controller: Website\Controller\UserController:addUser
+  controller: Website\Controller\UserController:addUser
 user_list:
-	controller: Website\Controller\UserController:deleteUser
+  controller: Website\Controller\UserController:deleteUser
 user_list:
-	controller: Website\Controller\UserController:logUser
-	
+  controller: Website\Controller\UserController:logUser
+
 

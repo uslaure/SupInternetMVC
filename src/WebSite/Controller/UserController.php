@@ -32,9 +32,9 @@ class UserController {
         //for this array use config_dev.yml and YamlComponents
         // http://symfony.com/fr/doc/current/components/yaml/introduction.html
         $connectionParams = array(
-            'dbname' => 'mydb',
-            'user' => 'user',
-            'password' => 'secret',
+            'dbname' => 'twitter',
+            'user' => 'root',
+            'password' => '',
             'host' => 'localhost',
             'driver' => 'pdo_mysql',
         );
@@ -66,7 +66,7 @@ class UserController {
     public function showUserAction($request) {
         //Use Doctrine DBAL here
 
-        $user = ...
+        $user = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 
         //you can return a Response object
         return [
@@ -144,3 +144,6 @@ class UserController {
 
     }
 }
+
+    public function loginAction()
+
